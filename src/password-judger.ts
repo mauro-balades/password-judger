@@ -2,20 +2,15 @@ import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
 
-@customElement('my-element')
-export class MyElement extends LitElement {
+@customElement('password-judger')
+export class PasswordJudger extends LitElement {
   static override styles = css`
     :host {
-      display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
+      width: 100%;
+      height: 100vh;
     }
   `;
 
-  /**
-   * The name to say "Hello" to.
-   */
   @property()
   name = 'World';
 
@@ -51,6 +46,6 @@ export class MyElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement;
+    'password-judger': PasswordJudger;
   }
 }
