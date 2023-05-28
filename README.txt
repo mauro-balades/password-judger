@@ -1,4 +1,4 @@
-# password judger
+============ password judger ============ 
 
 Introducing "Password Judger" - the revolutionary password checker powered by AI (Artificial Ignorance). Get ready to have your passwords scrutinized by an incredibly "intelligent" system that will amaze you with its comical judgments!
 
