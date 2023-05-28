@@ -159,7 +159,7 @@ export class PasswordJudger extends LitElement {
       var strength = 0;
     
       // Check password length
-      if (!(value.length < 8)) {
+      if (value !== "") {
         strength += 1;
       }
     
