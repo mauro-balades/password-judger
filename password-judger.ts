@@ -190,7 +190,7 @@ export class PasswordJudger extends LitElement {
           <a href="https://github.com/mauro-balades/password-judger" target="_blank"></a>
           <div>
             <div style="height: 100%; padding: 50px;">
-              <h1>Password judger</h1>
+              <h1>Password TEXT judger</h1>
               <br />
               <p>Introducing "Password Judger" - the revolutionary password checker powered by AI (Artificial Ignorance). Get ready to have your passwords scrutinized by an incredibly "intelligent" system that will amaze you with its comical judgments!</p>
               <br />
