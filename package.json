@@ -7,7 +7,7 @@
   "module": "password-judger.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "build:watch": "tsc --watch",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint './**/*.ts'",
