@@ -7,7 +7,7 @@
   "module": "password-judger.js",
   "type": "module",
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc --build && mv password-judger.js password-judger.temp.js && webpack ./password-judger.temp.js --mode production --output-filename ./password-judger.js --target web --output-path . && rm password-judger.temp.js",
     "build:watch": "tsc --watch",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint './**/*.ts'",
@@ -21,6 +21,7 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@types/estree": "^1.0.1",
     "lit": "^2.2.4",
     "wds": "^0.16.0"
   },
@@ -45,7 +46,9 @@
     "rollup": "^2.73.0",
     "rollup-plugin-summary": "^1.4.3",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "~4.7.4"
+    "typescript": "~4.7.4",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
   },
   "customElements": "custom-elements.json"
 }
