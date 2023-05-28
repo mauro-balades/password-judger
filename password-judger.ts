@@ -112,7 +112,7 @@ export class PasswordJudger extends LitElement {
 
       transform: translate(-50%, -50%);
 
-      background-image: url("/images/star.png");
+      background-image: url("./images/star.png");
       background-repeat: no-repeat;
       background-size: cover;
 
@@ -210,7 +210,7 @@ export class PasswordJudger extends LitElement {
             </div>
           </div>
           <div style="border-left: 4px solid rgba(0,0,0,.7);">
-            <img src="/images/pwd-${this.passwordLevel}.png" />
+            <img src="./images/pwd-${this.passwordLevel}.png" />
           </div>
         </div>
       </div>
