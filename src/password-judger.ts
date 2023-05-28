@@ -1,13 +1,6 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-const strengthLevels = [
-    /^.{0,5}$/,          // Any password with 5 or fewer characters
-    /^(?=.*[a-z]).{6,10}$/,     // At least one lowercase letter, 6-10 characters
-    /^(?=.*[a-z])(?=.*[A-Z]).{8,12}$/,  // At least one lowercase and one uppercase letter, 8-12 characters
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{10,}$/ // At least one lowercase, one uppercase, and one digit, 10 or more characters
-];
-
 @customElement('password-judger')
 export class PasswordJudger extends LitElement {
   static override styles = css`
@@ -87,6 +80,12 @@ export class PasswordJudger extends LitElement {
     img {
       image-rendering: pixelated;
     }
+
+    p {
+      font-size: 20px;
+      opacity: .9;
+      font-weight: 500;
+    }
   `;
 
   @property({type: Number})
@@ -95,16 +94,36 @@ export class PasswordJudger extends LitElement {
   change(event: InputEvent) {
     let target = event.target as HTMLInputElement | null;
     if (target) {
-      for (let level = 0; level < strengthLevels.length; level++) {
-        if (strengthLevels[level].test(target.value)) {
-          console.log(level)
-          this.passwordLevel = level;
-          super.requestUpdate();
-          return;
-        }
-      }
+      let value = target.value;
+      if (value === "1234") {
+        this.passwordLevel = 1234;
+        return;
+      } 
 
-      this.passwordLevel = 4;
+      var strength = 0;
+    
+      // Check password length
+      if (!(value.length < 8)) {
+        strength += 1;
+      }
+    
+      // Check for mixed case
+      if (value.match(/[a-z]/) && value.match(/[A-Z]/)) {
+        strength += 1;
+      }
+    
+      // Check for numbers
+      if (value.match(/\d/)) {
+        strength += 1;
+      }
+    
+      // Check for special characters
+      if (value.match(/[^a-zA-Z\d]/)) {
+        strength += 1;
+      }
+    
+      // Return results
+      this.passwordLevel = strength;
     }
   }
 
@@ -113,7 +132,18 @@ export class PasswordJudger extends LitElement {
       <div id="container">
         <div class="box">
           <div>
-            <div style="height: 100%;"></div>
+            <div style="height: 100%; padding: 50px;">
+              <h1>Password judger</h1>
+              <br />
+              <p>Introducing "Password Judger" - the revolutionary password checker powered by AI (Artificial Ignorance). Get ready to have your passwords scrutinized by an incredibly "intelligent" system that will amaze you with its comical judgments!</p>
+              <br />
+              <br />
+              <h2>How does it work, you ask?</h2>
+              <br />
+              <p>Well, Password Judger utilizes a highly advanced AI algorithm called "Artificial Ignorance," designed to mimic the thought processes of the most clueless individuals. It leverages the power of sheer randomness and absurdity to evaluate your password choices with a touch of humor.</p>
+              <br />
+              <p>When you enter a password into Password Judger, our AI kicks into action, generating a series of completely nonsensical metrics and conducting the most irrational analysis imaginable. These metrics include:</p>
+            </div>
             <div style="border-top: 4px solid rgba(0,0,0,.5);">
               <input @input=${this.change} placeholder="Type here your password" type="password" />
             </div>
