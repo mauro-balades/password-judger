@@ -1,5 +1,5 @@
-import {LitElement, html, css} from '../node_modules/lit-element/lit-element.js';
-import {customElement, property} from '../node_modules/lit-element/decorators.js';
+import {LitElement, html, css} from './node_modules/lit-element/lit-element.js';
+import {customElement, property} from './node_modules/lit-element/decorators.js';
 
 @customElement('password-judger')
 export class PasswordJudger extends LitElement {
