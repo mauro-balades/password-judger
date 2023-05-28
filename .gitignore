@@ -1,0 +1,10 @@
+/node_modules/
+/lib/
+/test/
+custom-elements.json
+# top level source
+password-judger.js
+password-judger.js.map
+password-judger.d.ts
+password-judger.d.ts.map
+password-judger.bundled.js
